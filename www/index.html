@@ -15,6 +15,9 @@
         Diff with the actual date = <br>
         <div id=diffData></div><br>
         
+        Diff with the actual date OLD METHOD = <br>
+        <div id=diffData2></div><br>
+        
         <script>
             document.getElementById("diffData").innerHTML = "whatever";
 
@@ -26,6 +29,11 @@
             localStorage.setItem('mbsr_week_1', d);
             document.getElementById("week1data").innerHTML = d;
 
+            var weekStart = new Date(localStorage.getItem('mbsr_week_1'));            
+            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000 * 3600 * 24)) < 0) {
+                document.getElementById("diffData2").innerHTML = 1;
+            }
+            
             // Check which week is the actual one      
             timedCount();
             function timedCount() {
