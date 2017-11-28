@@ -32,6 +32,8 @@
             var weekStart = new Date(localStorage.getItem('mbsr_week_1'));            
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000 * 3600 * 24)) < 0) {
                 document.getElementById("diffData2").innerHTML = 1;
+            } else {
+                document.getElementById("diffData2").innerHTML = 0;
             }
             
             // Check which week is the actual one      
