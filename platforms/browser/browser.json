@@ -1,0 +1,29 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-sqlite": {
+            "PACKAGE_NAME": "com.datapp.app"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-sqlite/www/SQLitePlugin.js",
+            "id": "cordova-plugin-sqlite.SQLitePlugin",
+            "pluginId": "cordova-plugin-sqlite",
+            "clobbers": [
+                "window.sqlitePlugin",
+                "cordova.plugins.sqlitePlugin"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-sqlite": "1.0.3"
+    }
+}

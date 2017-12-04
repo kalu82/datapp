@@ -1,0 +1,15 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-sqlite": {
+            "PACKAGE_NAME": "com.datapp.app"
+        }
+    },
+    "dependent_plugins": {}
+}

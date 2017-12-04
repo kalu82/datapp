@@ -5,9 +5,13 @@
   "cordova": {
     "platforms": [
       "android"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-sqlite": {}
+    }
   },
   "dependencies": {
-    "cordova-android": "~6.3.0"
+    "cordova-android": "~6.3.0",
+    "cordova-plugin-sqlite": "^1.0.3"
   }
 }

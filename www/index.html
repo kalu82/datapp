@@ -6,6 +6,68 @@
         <title>Blank App</title>
     </head>
     <body>
+        Actual date = <br>
+        <div id=nowDate></div><br> 
+        
+        Week 1 date = <br>
+        <div id=week1data></div><br> 
+        
+        Diff with the actual date = <br>
+        <div id=diffData></div><br>
+
+        <button onclick="sqltest()">Test sql</button>
+        
+        <script>
+            document.getElementById("diffData").innerHTML = "whatever";
+
+            var d = new Date();
+            document.getElementById("nowDate").innerHTML = d;
+
+            d.setDate(28); d.setMonth(10); d.setYear(2017);
+            d.setHours(13, 00, 00, 0);
+            localStorage.setItem('mbsr_week_1', d);
+            document.getElementById("week1data").innerHTML = d;
+
+            // Check which week is the actual one      
+            timedCount();
+            function timedCount() {
+                var diff = Math.ceil((new Date().getTime() - new Date(localStorage.getItem('mbsr_week_1')).getTime()) / (1000))
+                document.getElementById("diffData").innerHTML = diff;
+
+                var t = setTimeout(function () { timedCount() }, 1000);
+            }
+            
+        </script>
+
+        <script>
+            var db = null;
+
+            document.addEventListener('deviceready', function () {
+                db = window.sqlitePlugin.openDatabase({ name: 'demo.db', location: 'default' });
+            });
+
+            db.sqlBatch([
+                'CREATE TABLE IF NOT EXISTS DemoTable (name, score)',
+                ['INSERT INTO DemoTable VALUES (?,?)', ['Alice', 101]],
+                ['INSERT INTO DemoTable VALUES (?,?)', ['Betty', 202]],
+            ], function () {
+                console.log('Populated database OK');
+            }, function (error) {
+                console.log('SQL batch ERROR: ' + error.message);
+            });
+
+            function sqltest() {
+                var t = "";
+                db.executeSql('SELECT count(*) AS mycount FROM DemoTable', [], function (rs) {
+                    t = 'Record count (expected to be 2): ' + rs.rows.item(0).mycount;
+                }, function (error) {
+                    t = 'SELECT SQL statement ERROR: ' + error.message;
+                });
+                window.alert(t);
+            }
+
+        </script>
+
         <script type="text/javascript" src="cordova.js"></script>
     </body>
 </html>
