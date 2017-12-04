@@ -27,22 +27,10 @@
             document.getElementById("nowDate").innerHTML = d;
 
             d.setDate(28); d.setMonth(10); d.setYear(2017);
-            
             d.setHours(13, 00, 00, 0);
             localStorage.setItem('mbsr_week_1', d);
             document.getElementById("week1data").innerHTML = d;
-            
-            d.setHours(16, 42, 00, 0);
-            localStorage.setItem('mbsr_week_1', d);
-            document.getElementById("week1data").innerHTML = d;
 
-            var weekStart = new Date(localStorage.getItem('mbsr_week_1'));            
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
-                document.getElementById("diffData2").innerHTML = 1;
-            } else {
-                document.getElementById("diffData2").innerHTML = 0;
-            }
-            
             // Check which week is the actual one      
             timedCount();
             function timedCount() {
@@ -82,8 +70,7 @@
             }
 
         </script>
-        
+
         <script type="text/javascript" src="cordova.js"></script>
     </body>
 </html>
-
