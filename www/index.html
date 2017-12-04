@@ -14,8 +14,14 @@
         
         Diff with the actual date = <br>
         <div id=diffData></div><br>
+<<<<<<< HEAD
 
         <button onclick="sqltest()">Test sql</button>
+=======
+        
+        Diff with the actual date OLD METHOD = <br>
+        <div id=diffData2></div><br>
+>>>>>>> 6f806f9ab7be43dd587d34d2cf8d0db28c5e75a4
         
         <script>
             document.getElementById("diffData").innerHTML = "whatever";
@@ -24,10 +30,24 @@
             document.getElementById("nowDate").innerHTML = d;
 
             d.setDate(28); d.setMonth(10); d.setYear(2017);
+<<<<<<< HEAD
             d.setHours(13, 00, 00, 0);
             localStorage.setItem('mbsr_week_1', d);
             document.getElementById("week1data").innerHTML = d;
 
+=======
+            d.setHours(16, 42, 00, 0);
+            localStorage.setItem('mbsr_week_1', d);
+            document.getElementById("week1data").innerHTML = d;
+
+            var weekStart = new Date(localStorage.getItem('mbsr_week_1'));            
+            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+                document.getElementById("diffData2").innerHTML = 1;
+            } else {
+                document.getElementById("diffData2").innerHTML = 0;
+            }
+            
+>>>>>>> 6f806f9ab7be43dd587d34d2cf8d0db28c5e75a4
             // Check which week is the actual one      
             timedCount();
             function timedCount() {
@@ -39,6 +59,7 @@
             
         </script>
 
+<<<<<<< HEAD
         <script>
             var db = null;
 
@@ -68,6 +89,9 @@
 
         </script>
 
+=======
+>>>>>>> 6f806f9ab7be43dd587d34d2cf8d0db28c5e75a4
         <script type="text/javascript" src="cordova.js"></script>
     </body>
 </html>
+
